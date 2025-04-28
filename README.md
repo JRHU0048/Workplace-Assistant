@@ -3,11 +3,11 @@
 
 整体框架介绍：
 
-![](images/img1.png)
+![](images/整体框架图.png)
 
 系统流程：
 
-![](images/img2.png)
+![](images/系统流程图2.png)
 
 小程序端
 ---
@@ -28,5 +28,5 @@ app.py 文件
 
 效果展示
 ---
-![](images/img3.png)
-![](images/img4.png)
+![](images/绘图1.png)
+![](images/绘图2.png)
