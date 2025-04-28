@@ -1,0 +1,28 @@
+<scroll-view class="records" scroll-y enable-back-to-top>
+  <block wx:for="{{records}}" wx:key="created_at">
+    <view class="record-card">
+      <!-- 问题卡片 -->
+      <view class="question-card">
+        <image class="icon" src="/assets/images/user-avatar.png"></image>
+        <view class="content">
+          <view class="text">{{item.question}}</view>
+          <view class="time">{{formatTime(item.created_at)}}</view>
+        </view>
+      </view>
+      
+      <!-- 回答卡片 -->
+      <view class="answer-card">
+        <image class="icon" src="/assets/images/bot-avatar.png"></image>
+        <view class="content">
+          <view class="text">{{item.answer}}</view>
+          <view class="time">{{formatTime(item.created_at)}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+  <view wx:if="{{records.length === 0}}" class="empty">
+    <image src="/assets/images/empty.png" mode="aspectFit"></image>
+    <text>暂无历史记录</text>
+  </view>
+</scroll-view>

@@ -1,0 +1,55 @@
+<view class="container">
+
+  <!-- 对话区域 -->
+  <view class="chat-container" id="chatContainer">
+    <block wx:for="{{messages}}" wx:key="time">
+      <view class="message {{item.role}}">
+        <!-- 用户消息右对齐，机器人消息左对齐 -->
+        <image class="avatar {{item.role === 'user' ? 'right' : 'left'}}" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="bubble">
+          <view class="content">{{item.content}}</view>
+          <view class="time">{{item.time}}</view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 加载指示器 -->
+    <view class="loading" wx:if="{{isAsking}}">
+      <image class="avatar" src="/assets/images/bot-avatar.png" mode="aspectFill"></image>
+      <view class="bubble">
+        <view class="typing-indicator">
+          <view class="dot"></view>
+          <view class="dot"></view>
+          <view class="dot"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 输入区域 -->
+  <view class="input-area {{inputFocus ? 'focus' : ''}}">
+    <textarea 
+      placeholder="请输入您的职场问题..." 
+      value="{{question}}" 
+      bindinput="inputQuestion"
+      bindfocus="focusInput"
+      bindblur="blurInput"
+      adjust-position="{{false}}"
+      auto-height
+      maxlength="300"
+      cursor-spacing="10"
+      fixed="true"
+    ></textarea>
+    <button 
+      type="primary" 
+      bindtap="askQuestion" 
+      disabled="{{isAsking}}"
+      class="send-btn"
+    >发送</button>
+  </view>
+  
+  <!-- 历史记录按钮 -->
+  <!-- <view class="history-btn">
+    <button bindtap="viewHistory">历史记录</button>
+  </view> -->
+</view>

@@ -1,0 +1,13 @@
+<view class="container">
+  <input placeholder="请输入用户名" bindinput="inputUsername" />
+  <input placeholder="请输入密码" password bindinput="inputPassword" />
+  <button bindtap="login" disabled="{{isLoading}}">{{isLoading? '登录中...' : '登录'}}</button>
+</view>
+
+
+<!-- 1.0 -->
+<!-- <view class="container">
+  <input placeholder="请输入用户名" bindinput="inputUsername" />
+  <input placeholder="请输入密码" password bindinput="inputPassword" />
+  <button bindtap="login">登录</button>
+</view> -->
